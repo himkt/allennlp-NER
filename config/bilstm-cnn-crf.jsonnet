@@ -83,10 +83,10 @@ local cuda_device = 0;
   },
   "trainer": {
     "optimizer": {
-        "type": "sgd",
-        "lr": lr,
-        "momentum": momentum,
-        "weight_decay": weight_decay,
+      "type": "sgd",
+      "lr": lr,
+      // "momentum": momentum,  TODO (himkt): enabling momentum causes performance problem
+      // "weight_decay": weight_decay,
     },
     "checkpointer": {
         "num_serialized_models_to_keep": 3,
