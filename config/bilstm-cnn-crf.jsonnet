@@ -1,6 +1,6 @@
 // word embedding
 local char_embedding_dim = 30;
-local pretrained_embedding_file = "https://allennlp.s3.amazonaws.com/datasets/glove/glove.6B.50d.txt.gz";
+local pretrained_embedding_file = "https://allennlp.s3.amazonaws.com/datasets/glove/glove.6B.100d.txt.gz";
 local embedding_dim = 100;
 
 // character embedding
@@ -62,7 +62,7 @@ local cuda_device = 0;
             },
             "encoder": {
                 "type": "cnn",
-                "embedding_dim": char_embedding_dim,,
+                "embedding_dim": char_embedding_dim,
                 "num_filters": num_filters,
                 "ngram_filter_sizes": window,
                 "conv_layer_activation": "relu"
