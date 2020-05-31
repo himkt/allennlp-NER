@@ -5,7 +5,7 @@ local bert_model = "bert-large-cased";
 local lr = 5e-7;
 local lstm_num_layers = 2;
 local lstm_hidden_size = 768;
-local max_length = 512
+local max_length = 512;
 local num_epochs = 150;
 local optimizer = 'adam';
 
@@ -23,6 +23,7 @@ local optimizer = 'adam';
       },
     }
   },
+  "datasets_for_vocab_creation": ["train"],
   "train_data_path": "./data/eng.train",
   "validation_data_path": "./data/eng.testa",
   "test_data_path": "./data/eng.testb",
@@ -43,7 +44,6 @@ local optimizer = 'adam';
         "type": "lstm",
         "input_size": bert_embedding_dim,
         "hidden_size": bert_embedding_dim / 2,
-        "dropout": dropout,
         "bidirectional": true,
         "num_layers": lstm_num_layers,
     },
