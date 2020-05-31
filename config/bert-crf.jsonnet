@@ -12,7 +12,7 @@ local batch_size = 32;
 
 // optimization
 local optimizer = 'adam';
-local lr = 5e-5;
+local lr = 5e-7;
 local weight_decay = 0.05;
 
 local cuda_device = 0;
@@ -70,7 +70,7 @@ local cuda_device = 0;
       "num_serialized_models_to_keep": 3,
     },
     "validation_metric": "+f1-measure-overall",
-    "num_epochs": 75,
+    "num_epochs": 150,
     "patience": 25,
     "cuda_device": cuda_device,
   }

@@ -6,11 +6,11 @@ local lstm_hidden_size = 100;
 
 // Training
 local dropout = 0.5;
-local batch_size = 32;
+local batch_size = 10;
 
 // optimization
 local optimizer = 'adam';
-local lr = 5e-5;
+local lr = 5e-7;
 local weight_decay = 0.05;
 
 local cuda_device = 0;
@@ -23,8 +23,8 @@ local cuda_device = 0;
     "token_indexers": {
       "tokens": {
         "type": "pretrained_transformer_mismatched",
-        "model_name": "neuralmind/bert-base-portuguese-cased",
-        "max_length": 512,
+        "model_name": "bert-large-cased",
+        "max_length": 128,
       },
     }
   },
@@ -39,8 +39,8 @@ local cuda_device = 0;
       "token_embedders": {
         "tokens": {
           "type": "pretrained_transformer_mismatched",
-          "model_name": "neuralmind/bert-base-portuguese-cased",
-          "max_length": 512
+          "model_name": "bert-large-cased",
+          "max_length": 128,
         },
       },
     },
@@ -65,7 +65,7 @@ local cuda_device = 0;
       "num_serialized_models_to_keep": 3,
     },
     "validation_metric": "+f1-measure-overall",
-    "num_epochs": 75,
+    "num_epochs": 150,
     "patience": 25,
     "cuda_device": cuda_device,
   }
