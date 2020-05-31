@@ -46,9 +46,10 @@ local cuda_device = 0;
     "encoder": {
         "type": "lstm",
         "input_size": bert_embedding_dim,
-        "hidden_size": lstm_hidden_size,
+        "hidden_size": bert_embedding_dim / 2,
         "dropout": dropout,
-        "bidirectional": true
+        "bidirectional": true,
+        "num_layers": 2,
     },
   },
   "data_loader": {
