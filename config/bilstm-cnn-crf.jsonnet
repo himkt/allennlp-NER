@@ -93,7 +93,7 @@ local cuda_device = 0;
         "num_serialized_models_to_keep": 3,
     },
     "validation_metric": "+f1-measure-overall",
-    "num_epochs": 75,
+    "num_epochs": 150,
     "grad_norm": gradient_norm,
     "patience": 25,
     "cuda_device": cuda_device

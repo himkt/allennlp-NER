@@ -1,5 +1,5 @@
 // BERT embedding
-local bert_embedding_dim = 768;
+local bert_embedding_dim = 1024;
 
 // LSTM
 local lstm_hidden_size = 100;

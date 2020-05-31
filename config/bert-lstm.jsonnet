@@ -1,5 +1,5 @@
 // BERT embedding
-local bert_embedding_dim = 768;
+local bert_embedding_dim = 1024;
 
 // LSTM
 local lstm_hidden_size = 100;
@@ -11,7 +11,6 @@ local batch_size = 10;
 // optimization
 local optimizer = 'adam';
 local lr = 5e-7;
-local weight_decay = 0.05;
 
 local cuda_device = 0;
 
@@ -59,7 +58,6 @@ local cuda_device = 0;
     "optimizer": {
       "type": optimizer,
       "lr": lr,
-      // "weight_decay": weight_decay,
     },
     "checkpointer": {
       "num_serialized_models_to_keep": 3,

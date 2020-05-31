@@ -1,5 +1,5 @@
 // BERT embedding
-local bert_embedding_dim = 768;
+local bert_embedding_dim = 1024;
 
 // FNN
 local fnn_hidden_dims = [512, 256];
