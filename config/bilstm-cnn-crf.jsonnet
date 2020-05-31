@@ -37,6 +37,7 @@ local cuda_device = 0;
       }
     }
   },
+  "datasets_for_vocab_creation": ["train"],
   "train_data_path": "./data/eng.train",
   "validation_data_path": "./data/eng.testa",
   "test_data_path": "./data/eng.testb",
