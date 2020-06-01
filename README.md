@@ -13,11 +13,9 @@ poetry install
 ### Models
 
 - [BiLSTM-CNN-CRF](./config/bilstm-cnn-crf.jsonnet) [Ma+, 2016]
-  - https://www.aclweb.org/anthology/P16-1101/
-- [BERT](./config/bert.jsonnet)
-- [BERT-LSTM](./config/bert-lstm.jsonnet)
-- [BERT-CRF](./config/bert-crf.jsonnet)
-- [BERT-LSTM-CRF](./config/bert-lstm-crf.jsonnet)
+  - ACL2016, https://www.aclweb.org/anthology/P16-1101/
+- [BERT](./config/bert.jsonnet) [Devlin+, 2019]
+  - NAACL2019, https://www.aclweb.org/anthology/N19-1423/
 
 ### Modules
 
