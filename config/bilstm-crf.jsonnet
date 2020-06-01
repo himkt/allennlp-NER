@@ -1,15 +1,15 @@
 local batch_size = 10;
-local char_embedding_dim = 30;
-local cnn_windows = [3];
-local cnn_num_filters = 30;
 local cuda_device = 0;
-local embedding_dim = 100;
+local char_embedding_dim = 25;
+local char_lstm_hidden_size = 50;
 local dropout = 0.5;
-local lstm_hidden_size = 200;
+local embedding_dim = 100;
+local pretrained_embedding_file = "https://allennlp.s3.amazonaws.com/datasets/glove/glove.6B.100d.txt.gz";
 local lr = 0.015;
+local lstm_hidden_size = 200;
 local num_epochs = 150;
 local optimizer = "sgd";
-local pretrained_embedding_file = "https://allennlp.s3.amazonaws.com/datasets/glove/glove.6B.100d.txt.gz";
+
 
 {
   "dataset_reader": {
@@ -53,18 +53,17 @@ local pretrained_embedding_file = "https://allennlp.s3.amazonaws.com/datasets/gl
                 "embedding_dim": char_embedding_dim,
             },
             "encoder": {
-                "type": "cnn",
-                "embedding_dim": char_embedding_dim,
-                "num_filters": cnn_num_filters,
-                "ngram_filter_sizes": cnn_windows,
-                "conv_layer_activation": "relu"
+                "type": "lstm",
+                "input_size": char_embedding_dim,
+                "hidden_size": char_lstm_hidden_size/2,
+                "bidirectional": true,
             }
           }
        },
     },
     "encoder": {
         "type": "lstm",
-        "input_size": embedding_dim + num_filters,
+        "input_size": embedding_dim + char_lstm_hidden_size,
         "hidden_size": lstm_hidden_size,
         "dropout": dropout,
         "bidirectional": true
@@ -75,8 +74,8 @@ local pretrained_embedding_file = "https://allennlp.s3.amazonaws.com/datasets/gl
   },
   "trainer": {
     "optimizer": {
-      "type": optimizer,
-      "lr": lr,
+        "type": optimizer,
+        "lr": lr,
     },
     "checkpointer": {
         "num_serialized_models_to_keep": 3,

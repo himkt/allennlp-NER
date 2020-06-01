@@ -27,6 +27,7 @@ local optimizer = 'adam';
   "train_data_path": "./data/eng.train",
   "validation_data_path": "./data/eng.testa",
   "test_data_path": "./data/eng.testb",
+  "evaluate_on_test": true,
   "model": {
     "type": "simple_tagger_2",
     "label_encoding": "BIOUL",
