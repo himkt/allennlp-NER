@@ -12,6 +12,8 @@ poetry install
 
 ### Models
 
+- [BiLSTM-CRF](./config/bilstm-crf.jsonnet) [Lample+, 2016]
+  - NAACL2016, https://www.aclweb.org/anthology/N16-1030/
 - [BiLSTM-CNN-CRF](./config/bilstm-cnn-crf.jsonnet) [Ma+, 2016]
   - ACL2016, https://www.aclweb.org/anthology/P16-1101/
 - [BERT](./config/bert.jsonnet) [Devlin+, 2019]
