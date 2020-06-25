@@ -22,6 +22,4 @@ poetry install
 ### Modules
 
 - `SimpleTagger2`
-  - Will be removed after https://github.com/allenai/allennlp/pull/4302 is merged.
 - `span_f1_2`
-  - https://github.com/allenai/allennlp/pull/4302#issuecomment-636237398
