@@ -64,7 +64,7 @@ local pretrained_embedding_file = "https://allennlp.s3.amazonaws.com/datasets/gl
     },
     "encoder": {
         "type": "lstm",
-        "input_size": embedding_dim + num_filters,
+        "input_size": embedding_dim + cnn_num_filters,
         "hidden_size": lstm_hidden_size,
         "dropout": dropout,
         "bidirectional": true
