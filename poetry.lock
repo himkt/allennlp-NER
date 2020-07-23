@@ -4,29 +4,26 @@ description = "An open-source NLP research library, built on PyTorch."
 name = "allennlp"
 optional = false
 python-versions = ">=3.6.1"
-version = "1.0.0rc4"
+version = "1.0.0"
 
 [package.dependencies]
 boto3 = "*"
-conllu = "2.3.2"
-flaky = "*"
+filelock = ">=3.0,<3.1"
 h5py = "*"
-jsonnet = ">=0.10.0"
 jsonpickle = "*"
 nltk = "*"
 numpy = "*"
-overrides = "2.8.0"
+overrides = "3.0.0"
 pytest = "*"
 requests = ">=2.18"
-responses = ">=0.7"
 scikit-learn = "*"
 scipy = "*"
-semantic-version = "*"
 spacy = ">=2.1.0,<2.3"
 tensorboardX = ">=1.2"
 torch = ">=1.5.0,<1.6.0"
 tqdm = ">=4.19"
-transformers = ">=2.9,<2.10"
+transformers = ">=2.9,<2.12"
+jsonnet = {version = ">=0.10.0", markers = "sys_platform != \"win32\""}
 
 [[package]]
 category = "main"
@@ -34,10 +31,11 @@ description = "Officially supported models for the AllenNLP framework"
 name = "allennlp-models"
 optional = false
 python-versions = ">=3.6.1"
-version = "1.0.0rc4"
+version = "1.0.0"
 
 [package.dependencies]
-allennlp = "1.0.0rc4"
+allennlp = "1.0.0"
+conllu = "3.0"
 nltk = "*"
 py-rouge = "1.1"
 word2number = ">=1.1"
@@ -45,7 +43,6 @@ word2number = ">=1.1"
 [[package]]
 category = "main"
 description = "Atomic file writes."
-marker = "sys_platform == \"win32\""
 name = "atomicwrites"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
@@ -101,10 +98,7 @@ version = "1.16.15"
 docutils = ">=0.10,<0.16"
 jmespath = ">=0.7.1,<1.0.0"
 python-dateutil = ">=2.1,<3.0.0"
-
-[package.dependencies.urllib3]
-python = "<3.4.0 || >=3.5.0"
-version = ">=1.20,<1.26"
+urllib3 = {version = ">=1.20,<1.26", markers = "python_version != \"3.4\""}
 
 [[package]]
 category = "main"
@@ -115,9 +109,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
 version = "1.0.0"
 
 [package.dependencies]
-[package.dependencies.importlib-metadata]
-python = "<3.8"
-version = ">=0.20"
+importlib-metadata = {version = ">=0.20", markers = "python_version < \"3.8\""}
 
 [[package]]
 category = "main"
@@ -146,7 +138,6 @@ version = "7.1.2"
 [[package]]
 category = "main"
 description = "Cross-platform colored terminal text."
-marker = "sys_platform == \"win32\""
 name = "colorama"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
@@ -158,7 +149,7 @@ description = "CoNLL-U Parser parses a CoNLL-U formatted string into a nested py
 name = "conllu"
 optional = false
 python-versions = "*"
-version = "2.3.2"
+version = "3.0"
 
 [[package]]
 category = "main"
@@ -196,18 +187,7 @@ version = "3.8.1"
 mccabe = ">=0.6.0,<0.7.0"
 pycodestyle = ">=2.6.0a1,<2.7.0"
 pyflakes = ">=2.2.0,<2.3.0"
-
-[package.dependencies.importlib-metadata]
-python = "<3.8"
-version = "*"
-
-[[package]]
-category = "main"
-description = "Plugin for nose or pytest that automatically reruns flaky tests."
-name = "flaky"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "3.6.1"
+importlib-metadata = {version = "*", markers = "python_version < \"3.8\""}
 
 [[package]]
 category = "main"
@@ -271,7 +251,6 @@ version = "0.15.1"
 [[package]]
 category = "main"
 description = "Python bindings for Jsonnet - The data templating language"
-marker = "sys_platform != \"win32\""
 name = "jsonnet"
 optional = false
 python-versions = "*"
@@ -377,7 +356,7 @@ description = "A decorator to automatically detect mismatch when overriding a me
 name = "overrides"
 optional = false
 python-versions = "*"
-version = "2.8.0"
+version = "3.0.0"
 
 [[package]]
 category = "main"
@@ -408,9 +387,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "0.13.1"
 
 [package.dependencies]
-[package.dependencies.importlib-metadata]
-python = "<3.8"
-version = ">=0.12"
+importlib-metadata = {version = ">=0.12", markers = "python_version < \"3.8\""}
 
 [package.extras]
 dev = ["pre-commit", "tox"]
@@ -436,7 +413,6 @@ python-versions = "*"
 version = "3.12.1"
 
 [package.dependencies]
-setuptools = "*"
 six = ">=1.9"
 
 [[package]]
@@ -488,18 +464,15 @@ python-versions = ">=3.5"
 version = "5.4.2"
 
 [package.dependencies]
-atomicwrites = ">=1.0"
 attrs = ">=17.4.0"
-colorama = "*"
 more-itertools = ">=4.0.0"
 packaging = "*"
 pluggy = ">=0.12,<1.0"
 py = ">=1.5.0"
 wcwidth = "*"
-
-[package.dependencies.importlib-metadata]
-python = "<3.8"
-version = ">=0.12"
+atomicwrites = {version = ">=1.0", markers = "sys_platform == \"win32\""}
+colorama = {version = "*", markers = "sys_platform == \"win32\""}
+importlib-metadata = {version = ">=0.12", markers = "python_version < \"3.8\""}
 
 [package.extras]
 checkqa-mypy = ["mypy (v0.761)"]
@@ -541,21 +514,6 @@ urllib3 = ">=1.21.1,<1.25.0 || >1.25.0,<1.25.1 || >1.25.1,<1.26"
 [package.extras]
 security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
 socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7)", "win-inet-pton"]
-
-[[package]]
-category = "main"
-description = "A utility library for mocking out the `requests` Python library."
-name = "responses"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "0.10.14"
-
-[package.dependencies]
-requests = ">=2.0"
-six = "*"
-
-[package.extras]
-tests = ["coverage (>=3.7.1,<5.0.0)", "pytest-cov", "pytest-localserver", "flake8", "pytest (>=4.6,<5.0)", "pytest"]
 
 [[package]]
 category = "main"
@@ -613,14 +571,6 @@ numpy = ">=1.13.3"
 
 [[package]]
 category = "main"
-description = "A library implementing the 'SemVer' scheme."
-name = "semantic-version"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "2.8.5"
-
-[[package]]
-category = "main"
 description = "SentencePiece python wrapper"
 name = "sentencepiece"
 optional = false
@@ -652,7 +602,6 @@ numpy = ">=1.15.0"
 plac = ">=0.9.6,<1.2.0"
 preshed = ">=3.0.2,<3.1.0"
 requests = ">=2.13.0,<3.0.0"
-setuptools = "*"
 srsly = ">=1.0.2,<1.1.0"
 thinc = "7.4.0"
 tqdm = ">=4.38.0,<5.0.0"
@@ -859,17 +808,17 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "c987c4479f80227199b5c2e97efef4eef450d2fc6addd90496325fc76ce98af3"
+content-hash = "f637788bd63b2a8c49292d7b5fddbf01886f680514d50829c29c637831c397ba"
 python-versions = "^3.7"
 
 [metadata.files]
 allennlp = [
-    {file = "allennlp-1.0.0rc4-py3-none-any.whl", hash = "sha256:960f6c69d31a53f9f5cef0665cb52296425b416e42a57f6b642861a9e256b0cc"},
-    {file = "allennlp-1.0.0rc4.tar.gz", hash = "sha256:561a16e5b1ad486e70dc2c4ca9abf8d77b3ec01209a1733d3b6686c67091ee12"},
+    {file = "allennlp-1.0.0-py3-none-any.whl", hash = "sha256:348b8b1416fca5b37b73e0e26d75fdfa447fff6490ccdff2f5ebd9450611fb65"},
+    {file = "allennlp-1.0.0.tar.gz", hash = "sha256:307973af896eaa4a37df367b2b5e8fe4fe32f6efe440c5861a21d7b255c4a53b"},
 ]
 allennlp-models = [
-    {file = "allennlp_models-1.0.0rc4-py3-none-any.whl", hash = "sha256:292b6c7ae4d236c4628065c3970c8b425e10148fa50a0bde0f1f64c1a0e25fc0"},
-    {file = "allennlp_models-1.0.0rc4.tar.gz", hash = "sha256:b05f5291a5463109a35a39720fa79a8f7d52cb4ecd423b758921db35356d1a96"},
+    {file = "allennlp_models-1.0.0-py3-none-any.whl", hash = "sha256:72d494bac75cc82bdd971bcd9db3cc56140e011c7302a968b479b6e760bcc26c"},
+    {file = "allennlp_models-1.0.0.tar.gz", hash = "sha256:19b21de12a36f19a7639ccccba270df45a53bc59a0915c1b96d342f82e96cf57"},
 ]
 atomicwrites = [
     {file = "atomicwrites-1.4.0-py2.py3-none-any.whl", hash = "sha256:6d1784dea7c0c8d4a5172b6c620f40b6e4cbfdf96d783691f2e1302a7b88e197"},
@@ -926,8 +875,8 @@ colorama = [
     {file = "colorama-0.4.3.tar.gz", hash = "sha256:e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"},
 ]
 conllu = [
-    {file = "conllu-2.3.2-py2.py3-none-any.whl", hash = "sha256:7b3d433d06e50e3814be7af50d26e43151d8e134d7b84f5389d2ecafa2b65ab2"},
-    {file = "conllu-2.3.2.tar.gz", hash = "sha256:73721d17e3346d8423704fe75bfe296f0c4a693489e0c650b71f504c2a300dda"},
+    {file = "conllu-3.0-py2.py3-none-any.whl", hash = "sha256:f18113bbc7dc24fa04e7f1f8a4836b36dbd0325d1fb85a4228d507f44daeb71f"},
+    {file = "conllu-3.0.tar.gz", hash = "sha256:910f1aadc2c33bba643dcac162ba8ec8eb98578f244b138b96947092f3247d1f"},
 ]
 cymem = [
     {file = "cymem-2.0.3-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:f4f19af4bca81f11922508a9dcf30ce1d2aee4972af9f81ce8e5331a6f46f5e1"},
@@ -955,10 +904,6 @@ filelock = [
 flake8 = [
     {file = "flake8-3.8.1-py2.py3-none-any.whl", hash = "sha256:6c1193b0c3f853ef763969238f6c81e9e63ace9d024518edc020d5f1d6d93195"},
     {file = "flake8-3.8.1.tar.gz", hash = "sha256:ea6623797bf9a52f4c9577d780da0bb17d65f870213f7b5bcc9fca82540c31d5"},
-]
-flaky = [
-    {file = "flaky-3.6.1-py2.py3-none-any.whl", hash = "sha256:5471615b32b0f8086573de924475b1f0d31e0e8655a089eb9c38a0fbff3f11aa"},
-    {file = "flaky-3.6.1.tar.gz", hash = "sha256:8cd5455bb00c677f787da424eaf8c4a58a922d0e97126d3085db5b279a98b698"},
 ]
 future = [
     {file = "future-0.18.2.tar.gz", hash = "sha256:b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"},
@@ -1090,7 +1035,7 @@ numpy = [
     {file = "numpy-1.18.4.zip", hash = "sha256:bbcc85aaf4cd84ba057decaead058f43191cc0e30d6bc5d44fe336dc3d3f4509"},
 ]
 overrides = [
-    {file = "overrides-2.8.0.tar.gz", hash = "sha256:2ee4055a686a3ab30621deca01e43562e97825e29b7993e66d73f287d204e868"},
+    {file = "overrides-3.0.0.tar.gz", hash = "sha256:7dafd6efc15c809f0d812515bc1e8f64ffe28583d20e9046f95a2c010b4b6cdf"},
 ]
 packaging = [
     {file = "packaging-20.4-py2.py3-none-any.whl", hash = "sha256:998416ba6962ae7fbd6596850b80e17859a5753ba17c32284f67bfff33784181"},
@@ -1195,10 +1140,6 @@ requests = [
     {file = "requests-2.23.0-py2.py3-none-any.whl", hash = "sha256:43999036bfa82904b6af1d99e4882b560e5e2c68e5c4b0aa03b655f3d7d73fee"},
     {file = "requests-2.23.0.tar.gz", hash = "sha256:b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"},
 ]
-responses = [
-    {file = "responses-0.10.14-py2.py3-none-any.whl", hash = "sha256:3d596d0be06151330cb230a2d630717ab20f7a81f205019481e206eb5db79915"},
-    {file = "responses-0.10.14.tar.gz", hash = "sha256:1a78bc010b20a5022a2c0cb76b8ee6dc1e34d887972615ebd725ab9a166a4960"},
-]
 s3transfer = [
     {file = "s3transfer-0.3.3-py2.py3-none-any.whl", hash = "sha256:2482b4259524933a022d59da830f51bd746db62f047d6eb213f2f8855dcb8a13"},
     {file = "s3transfer-0.3.3.tar.gz", hash = "sha256:921a37e2aefc64145e7b73d50c71bb4f26f46e4c9f414dc648c6245ff92cf7db"},
@@ -1246,10 +1187,6 @@ scipy = [
     {file = "scipy-1.4.1-cp38-cp38-win32.whl", hash = "sha256:cc971a82ea1170e677443108703a2ec9ff0f70752258d0e9f5433d00dda01f59"},
     {file = "scipy-1.4.1-cp38-cp38-win_amd64.whl", hash = "sha256:2cce3f9847a1a51019e8c5b47620da93950e58ebc611f13e0d11f4980ca5fecb"},
     {file = "scipy-1.4.1.tar.gz", hash = "sha256:dee1bbf3a6c8f73b6b218cb28eed8dd13347ea2f87d572ce19b289d6fd3fbc59"},
-]
-semantic-version = [
-    {file = "semantic_version-2.8.5-py2.py3-none-any.whl", hash = "sha256:45e4b32ee9d6d70ba5f440ec8cc5221074c7f4b0e8918bdab748cc37912440a9"},
-    {file = "semantic_version-2.8.5.tar.gz", hash = "sha256:d2cb2de0558762934679b9a104e82eca7af448c9f4974d1f3eeccff651df8a54"},
 ]
 sentencepiece = [
     {file = "sentencepiece-0.1.91-cp27-cp27m-macosx_10_6_x86_64.whl", hash = "sha256:f2f109514b28326d5c6d69b43ba6b08e6fedf8fc77416b9a9c16be55c9ac138d"},
