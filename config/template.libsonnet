@@ -65,4 +65,23 @@
     patience: 25,
     cuda_device: cuda_device,
   },
+
+  OptunaTrainer:: function(optimizer, lr, num_epochs, cuda_device) {
+    optimizer: {
+      type: optimizer,
+      lr: lr,
+    },
+    checkpointer: {
+      num_serialized_models_to_keep: 3,
+    },
+    epoch_callbacks: [
+      {
+        type: 'optuna_pruner',
+      },
+    ],
+    validation_metric: '+f1-measure-overall',
+    num_epochs: num_epochs,
+    patience: 25,
+    cuda_device: cuda_device,
+  },
 }

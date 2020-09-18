@@ -19,6 +19,15 @@ poetry run allennlp train config/bilstm-crf.jsonnet -s model/bilstm-crf
 poetry run allennlp train config/bilstm-cnn-crf.jsonnet -s model/bilstm-cnn-crf
 ```
 
+## [New!] Hyperparameter Optimization
+
+You can try hyperparameter optimization for BiLSTM-CNN-CRF!
+It uses [Optuna](https://github.com/optuna/optuna), please read [AllenNLP guide](https://guide.allennlp.org/hyperparameter-optimization) if you want to learn more.
+
+```
+poetry run python hpo.py
+```
+
 
 ## References
 
