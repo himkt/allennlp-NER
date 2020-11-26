@@ -1,0 +1,27 @@
+[
+  {
+    "type": "int",
+    "attributes": {
+      "name": "char_embedding_dim",
+      "low": 16,
+      "high": 128
+    }
+  },
+  {
+    "type": "int",
+    "attributes": {
+      "name": "lstm_hidden_size",
+      "low": 64,
+      "high": 256 
+    }
+  },
+  {
+    "type": "float",
+    "attributes": {
+      "name": "lr",
+      "low": 5e-3,
+      "high": 5e-1,
+      "log": true
+    }
+  }
+]
