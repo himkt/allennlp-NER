@@ -28,6 +28,18 @@ It uses [Optuna](https://github.com/optuna/optuna), please read [AllenNLP guide]
 poetry run python hpo.py
 ```
 
+Or, you can also use [`allennlp-optuna`](https://github.com/himkt/allennlp-optuna).
+
+```
+poetry run allennlp tune \
+  config/bilstm-cnn-crf-hpo.jsonnet  \
+  config/bilstm-cnn-crf.hparams.json \
+  --serialization-dir result \
+  --metrics best_validation_f1-measure-overall \
+  --direction maximize
+```
+
+
 
 ## References
 
